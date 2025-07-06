@@ -16,30 +16,8 @@ const AnimatedIcon = ({
   height,
   src,
   alt,
-  name,
   className,
 }: AnimatedIconsInterface) => {
-  const containerVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    },
-    hover: {
-      y: -10,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 10,
-      },
-    },
-  };
-
   const iconVariants = {
     hover: {
       scale: 1.05,
@@ -49,29 +27,8 @@ const AnimatedIcon = ({
     },
   };
 
-  const textVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 5,
-    },
-    hover: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.1,
-        duration: 0.3,
-      },
-    },
-  };
-
   return (
-    <motion.div
-      className="flex flex-col items-center gap-2 cursor-pointer"
-      initial="hidden"
-      animate="visible"
-      whileHover="hover"
-      variants={containerVariants}
-    >
+    <div className="flex flex-col items-center gap-2 cursor-pointer">
       <motion.div
         className="relative"
         variants={iconVariants}
@@ -85,15 +42,7 @@ const AnimatedIcon = ({
           className={className}
         />
       </motion.div>
-      <motion.span
-        className="text-sm font-medium text-foreground"
-        variants={textVariants}
-        initial="hidden"
-        whileHover="hover"
-      >
-        {name}
-      </motion.span>
-    </motion.div>
+    </div>
   );
 };
 

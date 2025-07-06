@@ -1,11 +1,8 @@
 import Link from "next/link";
 import ReactImage from "../../../public/images/react.png";
-// import NextImage from "../../../public/images/nextDark.png";
-import Typescript from "../../../public/images/typescript.png";
-import NextLight from "../../../public/images/nextLight.png";
 import Js from "../../../public/images/js.png";
-import Image from "next/image";
-import AnimatedIcons from "../clients/AnimatedIcon";
+import NextLight from "../../../public/images/nextLight.png";
+import Typescript from "../../../public/images/typescript.png";
 import AnimatedIcon from "../clients/AnimatedIcon";
 
 export default function HeroSection() {
