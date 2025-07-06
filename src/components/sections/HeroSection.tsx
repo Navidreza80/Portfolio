@@ -41,7 +41,7 @@ export default function HeroSection() {
           </div>
         </div>
         <div className="h-full flex items-end">
-          <div className="flex justify-between items-center w-full px-12">
+          <div className="flex justify-between items-center w-full lg:px-12 md:px-0 px-0">
             <AnimatedIcon
               name="React.js"
               src={ReactImage}
