@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* globals.css */
+
+@theme {
+  --color-background: #0e0c1a;
+  --color-foreground: #f5f5f7;
+
+  --color-primary: #7b3fe4; /* Main violet/purple */
+  --color-primary-dark: #5522b5; /* For hover or deep accents */
+
+  --color-secondary: #3e2f85; /* Soft background element tone */
+  --color-accent: #8b5cf6; /* Indigo-light for highlights */
+
+  --color-border: #29223b;
+  --color-card: #1a162a;
+
+  --color-muted: #a1a1aa;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+:root.dark,
+.dark :root {
+  --color-background: #0a0815;
+  --color-foreground: #f0f0f4;
+}
+
+.bg-gradient {
+  background: radial-gradient(
+      circle at top left,
+      rgba(123, 63, 228, 0.3),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(139, 92, 246, 0.2),
+      transparent 50%
+    ),
+    linear-gradient(180deg, #0e0c1a, #0a0815);
+}
