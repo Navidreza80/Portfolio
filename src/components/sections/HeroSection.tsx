@@ -1,9 +1,5 @@
 import Link from "next/link";
-import ReactImage from "../../../public/images/react.png";
-import Js from "../../../public/images/js.png";
-import NextLight from "../../../public/images/nextLight.png";
-import Typescript from "../../../public/images/typescript.png";
-import AnimatedIcon from "../clients/AnimatedIcon";
+import PhotoSwiper from "../clients/PhotoSwiper";
 
 export default function HeroSection() {
   return (
@@ -40,40 +36,9 @@ export default function HeroSection() {
             </Link>
           </div>
         </div>
-        <div className="h-full flex items-end">
-          <div className="flex justify-between items-center w-full lg:px-12 md:px-0 px-0">
-            <AnimatedIcon
-              name="React.js"
-              src={ReactImage}
-              alt="ReactLogo"
-              width={64}
-              height={64}
-              className="w-16 h-16"
-            />
-            <AnimatedIcon
-              name="Next.js"
-              src={NextLight}
-              alt="NextLogo"
-              width={64}
-              height={64}
-              className="w-28 h-20"
-            />
-            <AnimatedIcon
-              name="Typescript"
-              src={Typescript}
-              alt="TypescriptLogo"
-              width={64}
-              height={64}
-              className="w-16 h-16"
-            />
-            <AnimatedIcon
-              name="Javascript"
-              src={Js}
-              alt="JsLogo"
-              width={64}
-              height={64}
-              className="w-16 h-16 rounded-lg"
-            />
+        <div className="h-full flex flex-col items-center justify-end gap-6 relative">
+          <div className="absolute inset-0 rounded-xl overflow-hidden">
+            <PhotoSwiper />
           </div>
         </div>
       </div>

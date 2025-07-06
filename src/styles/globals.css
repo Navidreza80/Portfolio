@@ -26,6 +26,14 @@
   --color-foreground: #f0f0f4;
 }
 
+.swiper-button-prev {
+  color: var(--color-accent) !important;
+}
+
+.swiper-button-next {
+  color: var(--color-accent) !important;
+}
+
 .bg-gradient {
   background: radial-gradient(
       circle at top left,

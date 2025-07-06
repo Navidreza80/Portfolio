@@ -7,8 +7,7 @@ interface AnimatedIconsInterface {
   height: number;
   src: string | StaticImageData;
   alt: string;
-  name: string;
-  className: string;
+  className?: string;
 }
 
 const AnimatedIcon = ({
