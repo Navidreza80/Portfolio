@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 const iconVariants = {
   hover: {
@@ -13,7 +13,7 @@ const iconVariants = {
 };
 
 interface AnimatedIconProps {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   width?: number;
   height?: number;
