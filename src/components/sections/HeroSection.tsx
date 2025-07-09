@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PhotoSwiper from "../clients/PhotoSwiper";
+import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -40,6 +41,11 @@ export default function HeroSection() {
           <div className="absolute inset-0 rounded-xl overflow-hidden">
             <PhotoSwiper />
           </div>
+        </div>
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-muted-foreground animate-bounce">
+          <ArrowDown />
+
+          <span className="text-sm font-mono">Scroll</span>
         </div>
       </div>
     </section>

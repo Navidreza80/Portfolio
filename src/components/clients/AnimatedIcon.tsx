@@ -1,33 +1,36 @@
-"use client";
 import { motion } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
-interface AnimatedIconsInterface {
-  width: number;
-  height: number;
-  src: string | StaticImageData;
+const iconVariants = {
+  hover: {
+    scale: 1.15,
+    transition: {
+      type: "spring" as const,
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+};
+
+interface AnimatedIconProps {
+  src: string;
   alt: string;
+  width?: number;
+  height?: number;
+  name?: string;
   className?: string;
 }
 
-const AnimatedIcon = ({
-  width,
-  height,
+export const AnimatedIcon = ({
   src,
   alt,
+  width = 36,
+  height = 36,
+  name,
   className,
-}: AnimatedIconsInterface) => {
-  const iconVariants = {
-    hover: {
-      scale: 1.05,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
-
+}: AnimatedIconProps) => {
   return (
-    <div className="flex flex-col items-center gap-2 cursor-pointer">
+    <div className="flex flex-col items-center gap-1 cursor-pointer group">
       <motion.div
         className="relative"
         variants={iconVariants}
@@ -38,11 +41,14 @@ const AnimatedIcon = ({
           alt={alt}
           width={width}
           height={height}
-          className={className}
+          className={`transition-transform duration-300 rounded-md group-hover:shadow-lg group-hover:shadow-primary/30 ${className}`}
         />
       </motion.div>
+      {name && (
+        <span className="text-xs text-muted-foreground group-hover:text-primary transition-colors">
+          {name}
+        </span>
+      )}
     </div>
   );
 };
-
-export default AnimatedIcon;
