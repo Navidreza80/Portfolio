@@ -2,11 +2,12 @@
 
 import { createMessage } from "@/app/actions/CreateMessage";
 import { contactInfo, socialLinks } from "@/constants";
-import { contactFormSchema } from "@/lib/validation/schema";
+import { contactSchema } from "@/lib/validation/schema";
 import { useFormik } from "formik";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export default function ContactSection() {
   const formik = useFormik({
@@ -15,9 +16,13 @@ export default function ContactSection() {
       message: "",
       email: "",
     },
-    validationSchema: contactFormSchema,
+    validationSchema: contactSchema,
     onSubmit: (value) => {
-      createMessage(value);
+      toast.promise(createMessage(value), {
+        loading: "loading...",
+        success: "Message sent successfully!!",
+        error: "Failed to sent message.",
+      });
     },
   });
 
@@ -137,7 +142,7 @@ export default function ContactSection() {
           <motion.button
             type="submit"
             whileHover={{ scale: 1.03 }}
-            className="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:bg-primary-hover transition"
+            className="w-full bg-primary cursor-pointer text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:bg-primary-hover transition"
           >
             Send Message <Send className="w-5 h-5" />
           </motion.button>
