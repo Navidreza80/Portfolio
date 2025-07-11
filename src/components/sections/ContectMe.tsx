@@ -1,44 +1,37 @@
 "use client";
 
+import { createMessage } from "@/app/actions/CreateMessage";
+import { contactInfo, socialLinks } from "@/constants";
+import { contactFormSchema } from "@/lib/validation/schema";
+import { useFormik } from "formik";
 import { motion } from "framer-motion";
-import {
-  Github,
-  Instagram,
-  Linkedin,
-  Mail,
-  MessageCircle,
-  Phone,
-  Send,
-} from "lucide-react";
+import { Send } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function ContactSection() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      message: "",
+      email: "",
+    },
+    validationSchema: contactFormSchema,
+    onSubmit: (value) => {
+      createMessage(value);
+    },
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormState({ ...formState, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Integrate with your email service or backend
-    alert("Message sent!");
-    setFormState({ name: "", email: "", message: "" });
-  };
+  const inputs = [
+    { id: 1, name: "name", value: formik.values.name, text: "Name" },
+    { id: 2, name: "email", value: formik.values.email, text: "Email" },
+  ];
 
   return (
     <section
       id="contact"
-      className="relative py-24 text-foreground  px-6 lg:px-24"
+      className="relative py-24 text-foreground px-6 lg:px-24"
     >
-      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-16  mx-auto">
+      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-16 mx-auto">
         {/* Info + Socials */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -54,74 +47,46 @@ export default function ContactSection() {
           </p>
 
           <div className="space-y-3">
-            <div className="flex items-center gap-3 text-muted">
-              <Mail className="w-5 h-5 text-primary" />
-              <Link
-                href="mailto:navid@example.com"
-                className="hover:text-primary transition"
-              >
-                navid@example.com
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-3 text-muted">
-              <Phone className="w-5 h-5 text-primary" />
-              <Link
-                href="tel:+989123456789"
-                className="hover:text-primary transition"
-              >
-                +98 912 345 6789
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-3 text-muted">
-              <MessageCircle className="w-5 h-5 text-primary" />
-              <div className="flex gap-3">
-                <Link
-                  href="https://t.me/naviduser"
-                  target="_blank"
-                  aria-label="Telegram"
-                  className="hover:text-primary transition"
-                >
-                  Telegram
-                </Link>
-                <Link
-                  href="https://wa.me/989123456789"
-                  target="_blank"
-                  aria-label="WhatsApp"
-                  className="hover:text-primary transition"
-                >
-                  WhatsApp
-                </Link>
+            {contactInfo.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-3 text-muted">
+                <item.icon className="w-5 h-5 text-primary mt-1" />
+                {item.links ? (
+                  <div className="flex gap-3">
+                    {item.links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        className="hover:text-primary transition"
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="hover:text-primary transition"
+                  >
+                    {item.text}
+                  </Link>
+                )}
               </div>
-            </div>
+            ))}
           </div>
 
           <div className="flex gap-5 mt-6">
-            <Link
-              href="https://github.com/navid"
-              aria-label="GitHub"
-              className="hover:text-primary transition"
-              target="_blank"
-            >
-              <Github className="w-6 h-6" />
-            </Link>
-            <Link
-              href="https://linkedin.com/in/navid"
-              aria-label="LinkedIn"
-              className="hover:text-primary transition"
-              target="_blank"
-            >
-              <Linkedin className="w-6 h-6" />
-            </Link>
-            <Link
-              href="https://instagram.com/navid"
-              aria-label="Instagram"
-              className="hover:text-primary transition"
-              target="_blank"
-            >
-              <Instagram className="w-6 h-6" />
-            </Link>
+            {socialLinks.map(({ icon: Icon, href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                target="_blank"
+                aria-label={label}
+                className="hover:text-primary transition"
+              >
+                <Icon className="w-6 h-6" />
+              </Link>
+            ))}
           </div>
         </motion.div>
 
@@ -130,44 +95,26 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          onSubmit={handleSubmit}
+          onSubmit={formik.handleSubmit}
           className="space-y-6 bg-card p-8 rounded-2xl border border-border shadow-xl"
         >
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-semibold text-muted"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formState.name}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full bg-background border border-border px-4 py-2 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-semibold text-muted"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formState.email}
-              onChange={handleChange}
-              required
-              className="mt-1 w-full bg-background border border-border px-4 py-2 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
+          {inputs.map((field) => (
+            <div key={field.id}>
+              <label
+                htmlFor={field.name}
+                className="block text-sm font-semibold text-muted capitalize"
+              >
+                {field.text}
+              </label>
+              <input
+                id={field.name}
+                name={field.name}
+                onChange={formik.handleChange}
+                value={field.value}
+                className="mt-1 w-full bg-background border border-border px-4 py-2 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+          ))}
 
           <div>
             <label
@@ -180,8 +127,8 @@ export default function ContactSection() {
               id="message"
               name="message"
               rows={4}
-              value={formState.message}
-              onChange={handleChange}
+              value={formik.values.message}
+              onChange={formik.handleChange}
               required
               className="mt-1 w-full bg-background border border-border px-4 py-2 rounded-lg text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary"
             />

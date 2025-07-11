@@ -4,9 +4,9 @@ import { ProjectCard } from "../clients/ProjectCard";
 const projects: ProjectCardProps["project"][] = [
   {
     slug: "ecommerce-platform",
-    title: "Premium E-Commerce Solution",
+    title: "Piza: Smart Property Booking & Rentals",
     description:
-      "High-performance online store with 99.9% uptime and 300ms page loads. Increased conversions by 40%.",
+      "Piza is a fast, modern real estate and booking platform built with Next.js, TypeScript, and Tailwind CSS. It combines property listings and hotel reservations into one seamless experience — optimized for performance, SEO, and responsive design.",
     tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
     image: "/projects/ecommerce.jpg",
     blurDataURL: "data:image/jpeg;base64,...",
@@ -23,7 +23,7 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-background-secondary"
+      className="px-4 sm:px-6 lg:px-8 bg-background-secondary"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">

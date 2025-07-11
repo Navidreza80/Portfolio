@@ -1,4 +1,11 @@
 import { Variants } from "framer-motion";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MessageCircle,
+  Phone
+} from "lucide-react";
 
 export const cardVariants: Variants = {
   hidden: {
@@ -56,3 +63,41 @@ export const textVariants: Variants = {
     },
   }),
 };
+
+export const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email",
+    href: "mailto:navidrezaabbaszadeh008@gmai.com",
+    text: "navidrezaabbaszadeh008@gmai.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    href: "tel:+989119490908",
+    text: "+98 911 949 0908",
+  },
+  {
+    icon: MessageCircle,
+    label: "Messengers",
+    links: [
+      {
+        name: "Telegram",
+        href: "https://t.me/Navidreze880",
+      },
+    ],
+  },
+];
+
+export const socialLinks = [
+  {
+    icon: Github,
+    href: "https://github.com/Navidreza80",
+    label: "GitHub",
+  },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/navidreza-abbaszadeh-727509374/",
+    label: "LinkedIn",
+  },
+];

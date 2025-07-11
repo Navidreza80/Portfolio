@@ -16,3 +16,9 @@ export interface ProjectCardProps {
   index: number;
   className?: string;
 }
+
+export interface ContactFormInput {
+  name: string;
+  email: string;
+  message: string;
+}

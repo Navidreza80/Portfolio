@@ -85,7 +85,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
           aria-label={`View details of ${project.title} project`}
           itemProp="url"
         >
-          View Case Study
+          View Project
           <motion.svg
             animate={{ x: [0, 2, 0] }}
             transition={{
