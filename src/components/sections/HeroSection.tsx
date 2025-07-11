@@ -4,7 +4,9 @@ import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-hero-gradient text-foreground min-h-screen flex items-center justify-center px-6 lg:px-24">
+    <section
+      className="relative bg-hero-gradient text-foreground min-h-screen flex items-center justify-center px-6 lg:px-24"
+    >
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-20">
         {/* Text Section */}
         <div>
