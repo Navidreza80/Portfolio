@@ -1,0 +1,3 @@
+[build]
+  command = "npx prisma generate && next build"
+  publish = ".next"
