@@ -7,7 +7,8 @@ const projects: ProjectCardProps["project"][] = [
     title: "Piza: Smart Property Booking & Rentals",
     description:
       "Piza is a fast, modern real estate and booking platform built with Next.js, TypeScript, and Tailwind CSS. It combines property listings and hotel reservations into one seamless experience — optimized for performance, SEO, and responsive design.",
-    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
+    tags: ["Next.js", "TypeScript", "Leaflet", "Tailwind"],
+    link: "https://pizarealestateapp.netlify.app/en",
     image: "/images/pizzaAppDark.png",
     blurDataURL: "data:image/jpeg;base64,...",
     publishedDate: "2023-06-15",

@@ -81,6 +81,8 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
         <motion.a
           whileHover={{ x: 3 }}
           href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center text-primary font-medium hover:text-primary-hover transition-colors"
           aria-label={`View details of ${project.title} project`}
           itemProp="url"

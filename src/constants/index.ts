@@ -97,7 +97,7 @@ export const socialLinks = [
   },
   {
     icon: Linkedin,
-    href: "https://www.linkedin.com/in/navidreza-abbaszadeh-727509374/",
+    href: "https://www.linkedin.com/in/NavidAbbaszadeh/",
     label: "LinkedIn",
   },
 ];
