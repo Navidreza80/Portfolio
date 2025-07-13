@@ -6,7 +6,6 @@ export interface ProjectCardProps {
     tags: string[];
     image: string;
     blurDataURL?: string;
-    link: string;
     publishedDate: string;
     isFeatured?: boolean;
     client?: string;

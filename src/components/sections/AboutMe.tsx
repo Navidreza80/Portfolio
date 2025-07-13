@@ -1,6 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, Code, Gauge, User } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutMe() {
   return (
@@ -43,9 +42,9 @@ export default function AboutMe() {
                 <p className="text-lg leading-relaxed">
                   As a{" "}
                   <span className="font-semibold text-primary">
-                    full-stack engineer
+                    frontend developer
                   </span>{" "}
-                  with {new Date().getFullYear() - 2020}+ years in the field, I
+                  with {new Date().getFullYear() - 2023}+ years in the field, I
                   specialize in building performant, accessible web applications
                   that deliver exceptional user experiences.
                 </p>
@@ -79,13 +78,17 @@ export default function AboutMe() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[
                     "Next.js",
-                    "TypeScript",
-                    "Server Side",
-                    "Tailwind CSS",
-                    "Node.js",
-                    "GraphQL / Apollo",
-                    "PostgreSQL",
-                    "WebAssembly",
+                    "React.js",
+                    "Typescript",
+                    "Javascript",
+                    "ES6",
+                    "HTML",
+                    "CSS",
+                    "Tailwindcss",
+                    "Shadcn",
+                    "Axios",
+                    "React Query",
+                    "Leaflet",
                   ].map((skill) => (
                     <li
                       key={skill}
@@ -105,7 +108,7 @@ export default function AboutMe() {
 
               {/* CTA */}
               <div className="pt-2">
-                <Link
+                <a
                   href="/resume.pdf"
                   download="Navidreza-Abbaszadeh-Resume.pdf"
                   className="inline-flex items-center group font-medium"
@@ -118,7 +121,7 @@ export default function AboutMe() {
                     className="ml-2 w-4 h-4 text-primary group-hover:translate-x-1 transition-transform"
                     aria-hidden="true"
                   />
-                </Link>
+                </a>
               </div>
             </div>
 
