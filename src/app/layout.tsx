@@ -1,11 +1,10 @@
+import Header from "@/components/layouts/Header";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import "../styles/globals.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Header from "@/components/layouts/Header";
-import { ToastContainer } from "react-toastify";
+import "../styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,7 +31,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="antialiased bg-gradient font-sans">
-        <ToastContainer position="top-right" theme="system" richColors />
         <Header /> {children}
       </body>
     </html>
