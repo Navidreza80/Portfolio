@@ -1,3 +1,9 @@
 [build]
   command = "npx prisma generate && next build"
   publish = ".next"
+
+[functions]
+  directory = "netlify/functions"
+
+[dev]
+  framework = "next"
