@@ -1,34 +1,13 @@
-"use client";
-
 import { createMessage } from "@/app/actions/CreateMessage";
 import { contactInfo, socialLinks } from "@/constants";
-import { contactSchema } from "@/lib/validation/schema";
-import { useFormik } from "formik";
-import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import Form from "next/form";
 import Link from "next/link";
-import { toast } from "sonner";
+import { SubmitButton } from "../clients/SubmitButton";
 
-export default function ContactSection() {
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      message: "",
-      email: "",
-    },
-    validationSchema: contactSchema,
-    onSubmit: (value) => {
-      toast.promise(createMessage(value), {
-        loading: "loading...",
-        success: "Message sent successfully!!",
-        error: "Failed to sent message.",
-      });
-    },
-  });
-
+export default async function ContactSection() {
   const inputs = [
-    { id: 1, name: "name", value: formik.values.name, text: "Name" },
-    { id: 2, name: "email", value: formik.values.email, text: "Email" },
+    { id: 1, name: "name", text: "Name", type: "text" },
+    { id: 2, name: "email", text: "Email", type: "email" },
   ];
 
   return (
@@ -38,12 +17,7 @@ export default function ContactSection() {
     >
       <div className="max-w-7xl w-full grid md:grid-cols-2 gap-16 mx-auto">
         {/* Info + Socials */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6"
-        >
+        <div className="space-y-6">
           <h2 className="text-4xl font-bold mb-4">
             Let’s Build Something <span className="text-primary">Awesome</span>
           </h2>
@@ -93,14 +67,11 @@ export default function ContactSection() {
               </Link>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Contact Form */}
-        <motion.form
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          onSubmit={formik.handleSubmit}
+        <Form
+          action={createMessage}
           className="space-y-6 bg-card p-8 rounded-2xl border border-border shadow-xl"
         >
           {inputs.map((field) => (
@@ -112,10 +83,10 @@ export default function ContactSection() {
                 {field.text}
               </label>
               <input
+                type={field.type}
+                required
                 id={field.name}
                 name={field.name}
-                onChange={formik.handleChange}
-                value={field.value}
                 className="mt-1 w-full bg-background border border-border px-4 py-2 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -130,23 +101,16 @@ export default function ContactSection() {
             </label>
             <textarea
               id="message"
+              aria-required
               name="message"
               rows={4}
-              value={formik.values.message}
-              onChange={formik.handleChange}
               required
               className="mt-1 w-full bg-background border border-border px-4 py-2 rounded-lg text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
 
-          <motion.button
-            type="submit"
-            whileHover={{ scale: 1.03 }}
-            className="w-full bg-primary cursor-pointer text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 hover:bg-primary-hover transition"
-          >
-            Send Message <Send className="w-5 h-5" />
-          </motion.button>
-        </motion.form>
+          <SubmitButton />
+        </Form>
       </div>
     </section>
   );

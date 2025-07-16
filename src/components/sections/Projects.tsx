@@ -19,7 +19,7 @@ const projects: ProjectCardProps["project"][] = [
   },
 ];
 
-export const ProjectsSection = () => {
+export const ProjectsSection = async () => {
   return (
     <section
       id="projects"

@@ -1,21 +1,31 @@
 "use server";
 
 import prisma from "@/lib/prisma";
-import { ContactFormInput } from "@/types";
+import { contactSchema } from "@/lib/validation/schema";
 
-export async function createMessage(formData: ContactFormInput) {
+export async function createMessage(formData: FormData): Promise<void> {
   try {
-    await prisma.contactMessage.create({
-      data: {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      },
-    });
+    const rawData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
 
-    return { success: true };
+    const result = contactSchema.safeParse(rawData);
+
+    if (!result.success) {
+      const errorMessages = result.error.format();
+      return console.log({ success: false, errors: errorMessages });
+    }
+
+    const { name, email, message } = result.data;
+
+    await prisma.contactMessage.create({
+      data: { name, email, message },
+    });
+    return console.log({ success: true });
   } catch (error) {
     console.error("Error saving message:", error);
-    return { success: false, error: "Something went wrong" };
+    return console.log({ success: false, error: "Something went wrong" });
   }
 }

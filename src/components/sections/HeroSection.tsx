@@ -2,7 +2,7 @@ import Link from "next/link";
 import PhotoSwiper from "../clients/PhotoSwiper";
 import { ArrowDown } from "lucide-react";
 
-export default function HeroSection() {
+export default async function HeroSection() {
   return (
     <section
       className="relative bg-hero-gradient text-foreground min-h-screen flex items-center justify-center px-6 lg:px-24"

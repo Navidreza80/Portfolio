@@ -1,7 +1,7 @@
 import { ArrowRight, Code, Gauge, User } from "lucide-react";
 import Image from "next/image";
 
-export default function AboutMe() {
+export default async function AboutMe() {
   return (
     <section
       id="about"

@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Header from "@/components/layouts/Header";
-import { Toaster } from "sonner";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="antialiased bg-gradient font-sans">
-        <Toaster position="top-right" theme="system" richColors />
+        <ToastContainer position="top-right" theme="system" richColors />
         <Header /> {children}
       </body>
     </html>
