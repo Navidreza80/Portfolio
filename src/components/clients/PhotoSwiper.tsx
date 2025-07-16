@@ -3,22 +3,22 @@
 import Image from "next/image";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import PizaAppDark from "../../../public/images/pizzaAppDark.png";
-import TradingAIAppDark from "../../../public/images/tradingAIAppDark.png";
-import ThreeJsAppDark from "../../../public/images/threeJsAppDark.png";
 import { AnimatedIcon } from "./AnimatedIcon";
-import React from "../../../public/images/react.png";
-import TailwindCss from "../../../public/images/tailwindcss.png";
-import ThreeJs from "../../../public/images/ThreeJs.png";
-import Vite from "../../../public/images/Vite.png";
-import NextJs from "../../../public/images/NextJs.png";
-import TypeScript from "../../../public/images/typescript.png";
-import ReactQuery from "../../../public/images/ReactQuery.png";
-import Js from "../../../public/images/js.png";
-import Leaflet from "../../../public/images/leaflet.png";
+import PizaAppDark from "@/assets/images/pizzaAppDark.png";
+import TradingAIAppDark from "@/assets/images/tradingAIAppDark.png";
+import ThreeJsAppDark from "@/assets/images/threeJsAppDark.png";
+import React from "@/assets/images/react.png";
+import TailwindCss from "@/assets/images/tailwindcss.png";
+import ThreeJs from "@/assets/images/ThreeJs.png";
+import Vite from "@/assets/images/Vite.png";
+import NextJs from "@/assets/images/NextJs.png";
+import TypeScript from "@/assets/images/typescript.png";
+import ReactQuery from "@/assets/images/ReactQuery.png";
+import Js from "@/assets/images/js.png";
+import Leaflet from "@/assets/images/leaflet.png";
+import Prisma from "@/assets/images/prisma.png";
 import { useRef } from "react";
 import { Swiper as SwiperType } from "swiper";
-import Prisma from "../../../public/images/prisma.png";
 
 const PhotoSwiper = () => {
   const swiperRef = useRef<SwiperType | null>(null);
