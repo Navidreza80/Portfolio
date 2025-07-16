@@ -1,7 +1,7 @@
-import * as yup from "yup";
+import { z } from "zod";
 
-export const contactSchema = yup.object({
-  name: yup.string().min(2).max(50).required("Name is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
-  message: yup.string().min(10).required("Message is required"),
+export const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters").max(50, "Name must be at most 50 characters"),
+  email: z.string().email("Invalid email").nonempty("Email is required"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
