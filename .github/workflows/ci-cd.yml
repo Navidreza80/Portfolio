@@ -1,4 +1,4 @@
-name: CI/CD for Next.js on Netlify
+name: CI for Next.js
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build and Deploy to Netlify
+    name: Check Build & Types
     runs-on: ubuntu-latest
 
     steps:
@@ -31,15 +31,3 @@ jobs:
 
       - name: Build Next.js app
         run: npm run build
-
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2.0
-        with:
-          publish-dir: '.next'
-          production-branch: 'main'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: 'Auto-deployed from GitHub Actions'
-          enable-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
