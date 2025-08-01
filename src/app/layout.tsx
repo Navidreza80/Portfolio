@@ -1,4 +1,3 @@
-import Header from "@/components/layouts/Header";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "swiper/css";
@@ -30,9 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <body className="antialiased bg-gradient font-sans">
-        <Header /> {children}
-      </body>
+      <body className="antialiased bg-gradient font-sans">{children}</body>
     </html>
   );
 }
