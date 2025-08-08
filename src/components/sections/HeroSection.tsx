@@ -1,10 +1,12 @@
-import Image from "next/image";
 import me from "@/assets/images/me.png";
+import Image from "next/image";
 import Header from "../layouts/Header";
+import { BorderBeam } from "../magicui/border-beam";
 import Github from "../svg/Github";
-import X from "../svg/X";
 import LinkedIn from "../svg/LinkedIn";
 import Telegram from "../svg/Telegram";
+import X from "../svg/X";
+import { Meteors } from "../magicui/meteors";
 
 const socialMediaLinks = [
   { icon: <Github />, href: "/github" },
@@ -16,6 +18,7 @@ const socialMediaLinks = [
 const HeroSection = () => {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#000000] to-[#390615] relative overflow-hidden">
+      <Meteors number={30} />
       {/* Background blobs - unchanged */}
       <span className="w-[165px] h-[149px] bg-white rounded-full top-0 left-0 absolute blur-[300px]" />
       <span className="w-[165px] h-[149px] bg-white rounded-full top-0 right-0 absolute blur-[300px]" />
@@ -31,7 +34,8 @@ const HeroSection = () => {
         </h1>
 
         {/* Profile image - unchanged */}
-        <div className="relative group">
+        <div className="relative group rounded-full">
+          <BorderBeam duration={8} size={200} />
           <Image
             unoptimized
             src={me}
