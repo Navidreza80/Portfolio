@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <body className="antialiased bg-gradient font-sans">{children}</body>
+      <body className="antialiased bg-background font-poppins">{children}</body>
     </html>
   );
 }
