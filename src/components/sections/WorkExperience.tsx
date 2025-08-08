@@ -1,12 +1,13 @@
 import { MagicCard } from "../magicui/magic-card";
 import { Particles } from "../magicui/particles";
+import { TypingAnimation } from "../magicui/typing-animation";
 
-const WorkExperience = () => {
+const WorkExperience = async () => {
   return (
     <div className="flex flex-wrap justify-center items-start min-h-screen bg-gradient-to-t from-[#000000] to-[#390615] px-4 py-10 sm:px-10 md:px-20 lg:px-20">
-      <h1 className="text-4xl md:text-6xl lg:text-[64px] font-extrabold mb-6 text-white w-full text-center">
+      <TypingAnimation className="text-4xl md:text-6xl lg:text-[64px] font-extrabold mb-6 text-white w-full text-center">
         Work Experiences
-      </h1>
+      </TypingAnimation>
       <div className="grid grid-cols-1 w-full space-y-4 mt-6">
         <MagicCard gradientColor={"#262626"} className="p-0 rounded-2xl">
           <div className="z-0 relative rounded-2xl">
