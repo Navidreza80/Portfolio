@@ -26,12 +26,14 @@ const HeroSection = () => {
       <div className="flex-1 flex flex-col items-center justify-center w-full px-4">
         {/* Name text - made responsive */}
         <h1 className="font-extrabold text-[40px] md:text-[64px] text-white text-center leading-tight">
-          NAVIDREZA<br className="md:hidden" /> ABBASZADEH
+          NAVIDREZA
+          <br className="md:hidden" /> ABBASZADEH
         </h1>
 
         {/* Profile image - unchanged */}
         <div className="relative group">
           <Image
+            unoptimized
             src={me}
             alt="Navidreza Abbaszadeh"
             width={298}
@@ -46,8 +48,8 @@ const HeroSection = () => {
         {/* Social links - unchanged */}
         <div className="flex justify-between my-6 relative z-10 gap-x-4">
           {socialMediaLinks.map((item, index) => (
-            <a 
-              key={index} 
+            <a
+              key={index}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
