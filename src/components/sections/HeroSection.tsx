@@ -2,13 +2,12 @@ import me from "@/assets/images/me.png";
 import Image from "next/image";
 import Header from "../layouts/Header";
 import { BorderBeam } from "../magicui/border-beam";
+import { Meteors } from "../magicui/meteors";
+import { TypingAnimation } from "../magicui/typing-animation";
 import Github from "../svg/Github";
 import LinkedIn from "../svg/LinkedIn";
 import Telegram from "../svg/Telegram";
 import X from "../svg/X";
-import { Meteors } from "../magicui/meteors";
-import { TypingAnimation } from "../magicui/typing-animation";
-import { ShinyButton } from "../magicui/shiny-button";
 
 const socialMediaLinks = [
   { icon: <Github />, href: "/github" },
@@ -66,9 +65,9 @@ const HeroSection = async () => {
         </div>
 
         {/* Button - made slightly more responsive */}
-        <ShinyButton className="bg-primary cursor-pointer hover:bg-primary/90 transition-all duration-300 text-white rounded-2xl font-bold text-[18px] md:text-[20px] px-10 md:px-14 py-3 active:scale-95">
+        <button className="bg-primary cursor-pointer hover:bg-primary/90 transition-all duration-300 text-white rounded-2xl font-bold text-[18px] md:text-[20px] px-10 md:px-14 py-3 active:scale-95">
           View Public Projects
-        </ShinyButton>
+        </button>
       </div>
     </div>
   );
