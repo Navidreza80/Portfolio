@@ -2,11 +2,12 @@ import me from "@/assets/images/me.png";
 import Image from "next/image";
 import Header from "../layouts/Header";
 import { BorderBeam } from "../magicui/border-beam";
+import { Meteors } from "../magicui/meteors";
+import { TypingAnimation } from "../magicui/typing-animation";
 import Github from "../svg/Github";
 import LinkedIn from "../svg/LinkedIn";
 import Telegram from "../svg/Telegram";
 import X from "../svg/X";
-import { Meteors } from "../magicui/meteors";
 
 const socialMediaLinks = [
   { icon: <Github />, href: "/github" },
@@ -15,7 +16,7 @@ const socialMediaLinks = [
   { icon: <Telegram />, href: "/telegram" },
 ];
 
-const HeroSection = () => {
+const HeroSection = async () => {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#000000] to-[#390615] relative overflow-hidden">
       <Meteors number={30} />
@@ -28,10 +29,9 @@ const HeroSection = () => {
 
       <div className="flex-1 flex flex-col items-center justify-center w-full px-4">
         {/* Name text - made responsive */}
-        <h1 className="font-extrabold text-[40px] md:text-[64px] text-white text-center leading-tight">
-          NAVIDREZA
-          <br className="md:hidden" /> ABBASZADEH
-        </h1>
+        <TypingAnimation className="font-extrabold text-[40px] md:text-[64px] text-white text-center leading-tight">
+          NAVIDREZA ABBASZADEH
+        </TypingAnimation>
 
         {/* Profile image - unchanged */}
         <div className="relative group rounded-full">
