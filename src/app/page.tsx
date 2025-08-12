@@ -1,3 +1,4 @@
+import ContactUs from "@/components/sections/ContactUsSection";
 import HeroSection from "@/components/sections/HeroSection";
 import TopProjects from "@/components/sections/Projects";
 import Testimonials from "@/components/sections/Testimonials";
@@ -10,6 +11,7 @@ export default function HomePage() {
       <WorkExperience />
       <TopProjects />
       <Testimonials />
+      <ContactUs />
     </>
   );
 }
