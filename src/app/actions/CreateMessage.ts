@@ -3,29 +3,37 @@
 import prisma from "@/lib/prisma";
 import { contactSchema } from "@/lib/validation/schema";
 
-export async function createMessage(formData: FormData): Promise<void> {
-  try {
-    const rawData = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
+export async function createMessage(formData: FormData) {
+  const rawData = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+  };
+
+  const result = contactSchema.safeParse(rawData);
+
+  if (!result.success) {
+    // Return detailed errors, don't just log
+    return {
+      success: false,
+      errors: result.error.format(),
     };
+  }
 
-    const result = contactSchema.safeParse(rawData);
+  const { name, email, message } = result.data;
 
-    if (!result.success) {
-      const errorMessages = result.error.format();
-      return console.log({ success: false, errors: errorMessages });
-    }
-
-    const { name, email, message } = result.data;
-
+  try {
     await prisma.contactMessage.create({
       data: { name, email, message },
     });
-    return console.log({ success: true });
+    return {
+      success: true,
+    };
   } catch (error) {
     console.error("Error saving message:", error);
-    return console.log({ success: false, error: "Something went wrong" });
+    return {
+      success: false,
+      errors: { message: "Database error, please try again." },
+    };
   }
 }
