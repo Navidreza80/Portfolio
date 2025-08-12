@@ -15,7 +15,7 @@ import { Marquee } from "../magicui/marquee";
 import { TypingAnimation } from "../magicui/typing-animation";
 import Prisma from "@/assets/images/prisma.png";
 import Three from "@/assets/images/ThreeJs.png";
-import IdeaVault from "@/assets/images/ideavault.png"
+import IdeaVault from "@/assets/images/ideavault.png";
 
 const projects = [
   {
@@ -46,31 +46,36 @@ const projects = [
       "Full stack aplication built with Next.js for validating your startup ideas with AI. ",
     github: "https://github.com/Navidreza80/IdeaVault",
     live: "https://valai.netlify.app/",
-    techStack: [NextJS, TS, React, Tailwind, ],
+    techStack: [NextJS, TS, React, Tailwind],
   },
 ];
 
 const TopProjects = () => {
   return (
-    <div className="flex flex-wrap justify-center relative items-start min-h-screen bg-gradient-to-b from-[#000000] to-[#390615] px-4 py-10 sm:px-10 md:px-20 lg:px-20">
+    <div className="relative flex flex-col items-center min-h-screen bg-gradient-to-b from-[#000000] to-[#390615] px-4 py-10 sm:px-10 md:px-16">
+      {/* Glowing background spots */}
       <span className="w-[165px] h-[149px] bg-white rounded-full top-0 left-0 absolute blur-[300px]" />
       <span className="w-[165px] h-[149px] bg-white rounded-full top-0 right-0 absolute blur-[300px]" />
       <span className="w-[165px] h-[149px] bg-white rounded-full bottom-0 left-1/2 transform -translate-x-1/2 absolute blur-[300px]" />
-      <TypingAnimation className="text-4xl md:text-6xl lg:text-[64px] font-extrabold mb-6 text-white w-full text-center">
+
+      {/* Section Title */}
+      <TypingAnimation className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-extrabold mb-8 text-white w-full text-center">
         Top Projects
       </TypingAnimation>
-      <div className="grid grid-cols-3 w-full gap-8 mt-16">
+
+      {/* Responsive grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-[1280px]">
         {projects.map((item, index) => (
           <div
             key={index}
-            className="bg-card rounded-2xl h-[450px] flex flex-col items-center relative overflow-hidden group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+            className="bg-card rounded-2xl h-[480px] flex flex-col items-center relative overflow-hidden group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 md:w-full w-full mx-auto sm:mx-0"
           >
-            {/* Image container with enhanced hover effects */}
+            {/* Image Container */}
             <div className="border-2 border-primary/30 w-[95%] absolute left-1/2 top-4 transform -translate-x-1/2 h-[220px] rounded-2xl flex items-center bg-black/90 overflow-hidden group-hover:border-primary/80 transition-all duration-300">
-              {/* Rainbow trail - enhanced animation */}
+              {/* Rainbow animated gradient */}
               <div className="absolute left-0 w-full h-full rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-md bg-[conic-gradient(from_var(--angle),red_0%,yellow_15%,lime_30%,cyan_45%,blue_60%,magenta_75%,red_100%)] animate-[spin_4s_linear_infinite]" />
 
-              {/* Lens effect with better styling */}
+              {/* Lens zoom effect */}
               <Lens
                 zoomFactor={2.5}
                 lensSize={180}
@@ -87,14 +92,14 @@ const TopProjects = () => {
                 />
               </Lens>
 
-              {/* Project type badge */}
+              {/* Tag badge */}
               <span className="absolute top-3 left-3 bg-primary/90 text-white text-xs px-2 py-1 rounded-full z-20 backdrop-blur-sm flex items-center justify-center font-semibold">
                 {item.tag}
               </span>
             </div>
 
-            {/* Content container with better spacing */}
-            <div className="flex-col flex w-[95%] mt-[250px] z-10">
+            {/* Content */}
+            <div className="flex flex-col w-[95%] mt-[250px] z-10">
               <div className="flex justify-between items-center">
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
                   {item.name}
@@ -122,24 +127,24 @@ const TopProjects = () => {
                 </div>
               </div>
 
-              <p className="font-medium text-sm text-gray-300 mt-3 leading-relaxed h-[80px]">
+              <p className="font-medium text-sm text-gray-300 mt-3 leading-relaxed min-h-[80px]">
                 {item.description}
               </p>
 
-              {/* Enhanced tech stack marquee */}
+              {/* Tech stack marquee */}
               <div className="mt-4 relative">
                 <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-card to-transparent z-20" />
                 <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-card to-transparent z-20" />
 
                 <Marquee pauseOnHover className="[--duration:20s] py-2">
-                  {item.techStack.map((tech, index) => (
+                  {item.techStack.map((tech, i) => (
                     <div
-                      key={index}
+                      key={i}
                       className="mx-2 flex items-center justify-center w-8 h-8 hover:scale-125 transition-transform duration-200"
                       data-tooltip={tech}
                     >
                       <Image
-                        alt={"Project Image"}
+                        alt={"Tech Icon"}
                         width={32}
                         height={32}
                         src={tech}
@@ -156,7 +161,13 @@ const TopProjects = () => {
           </div>
         ))}
       </div>
+
+      {/* View More Button */}
+      <button className="bg-primary mt-10 cursor-pointer hover:bg-primary/90 transition-all duration-300 text-white rounded-2xl font-bold text-[18px] md:text-[20px] px-10 md:px-14 py-3 active:scale-95">
+        View More Projects
+      </button>
     </div>
   );
 };
+
 export default TopProjects;
