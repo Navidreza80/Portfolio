@@ -1,5 +1,6 @@
 import HeroSection from "@/components/sections/HeroSection";
 import TopProjects from "@/components/sections/Projects";
+import Testimonials from "@/components/sections/Testimonials";
 import WorkExperience from "@/components/sections/WorkExperience";
 
 export default function HomePage() {
@@ -8,6 +9,7 @@ export default function HomePage() {
       <HeroSection />
       <WorkExperience />
       <TopProjects />
+      <Testimonials />
     </>
   );
 }

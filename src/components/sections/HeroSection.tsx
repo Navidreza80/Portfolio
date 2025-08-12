@@ -64,7 +64,7 @@ const HeroSection = async () => {
           ))}
         </div>
 
-        {/* Button - made slightly more responsive */}
+        {/* Button */}
         <button className="bg-primary cursor-pointer hover:bg-primary/90 transition-all duration-300 text-white rounded-2xl font-bold text-[18px] md:text-[20px] px-10 md:px-14 py-3 active:scale-95">
           View Public Projects
         </button>
