@@ -1,48 +1,54 @@
-import Github from "@/assets/images/github.png";
-import IdeaVault from "@/assets/images/ideavault.png";
-import LinkIcon from "@/assets/images/link.png";
-import NextJS from "@/assets/images/nextLight.png";
-import Pizza from "@/assets/images/pizzaAppDark.png";
-import Prisma from "@/assets/images/prisma.png";
-import React from "@/assets/images/react.png";
-import ReactQuery from "@/assets/images/ReactQuery.png";
-import Tailwind from "@/assets/images/tailwindcss.png";
-import Three from "@/assets/images/ThreeJs.png";
-import TradingAI from "@/assets/images/tradingAIAppDark.png";
-import TS from "@/assets/images/typescript.png";
 import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
   {
-    image: Pizza,
+    image: "/pisa.png",
     name: "Pizza App",
     tag: "Web Application",
     description:
       "A real-time pizza ordering application built with Next.js and React 19 featuring live order tracking, menu customization, and payment integration.",
     github: "https://github.com/Navidreza80/PizzaApp",
     live: "https://pizarealestateapp.netlify.app/",
-    techStack: [NextJS, ReactQuery, TS, React, Tailwind],
+    techStack: [
+      "/nextjs.png",
+      "/reactquery.png",
+      "/typescript.png",
+      "/react.png",
+      "/tailwindcss.png",
+    ],
   },
   {
-    image: TradingAI,
+    image: "/tradingai.png",
     name: "TradingAI",
     tag: "Fullstack app",
     description:
       "A full-stack powerhouse for tracking prices, generating trade signals, and aggregating breaking crypto news—all in one application.",
     github: "https://github.com/Navidreza80/TradingAI",
     live: "https://tradingaiapp.netlify.app/",
-    techStack: [NextJS, TS, React, Tailwind, Prisma, Three],
+    techStack: [
+      "/nextjs.png",
+      "/typescript.png",
+      "/react.png",
+      "/tailwindcss.png",
+      "/prisma.png",
+      "/threejs.png",
+    ],
   },
   {
-    image: IdeaVault,
+    image: "/ideavault.png",
     name: "IdeaVault",
     tag: "AI Driven",
     description:
       "Full stack application built with Next.js for validating your startup ideas with AI.",
     github: "https://github.com/Navidreza80/IdeaVault",
     live: "https://valai.netlify.app/",
-    techStack: [NextJS, TS, React, Tailwind],
+    techStack: [
+      "/nextjs.png",
+      "/typescript.png",
+      "/react.png",
+      "/tailwindcss.png",
+    ],
   },
 ];
 
@@ -68,7 +74,7 @@ const TopProjects = () => {
             {/* Project image */}
             <div className="relative h-48 overflow-hidden">
               <Image
-                src={item.image.src}
+                src={item.image}
                 alt={item.name}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -93,7 +99,12 @@ const TopProjects = () => {
                     rel="noopener noreferrer"
                     aria-label="GitHub repository"
                   >
-                    <Image src={Github.src} alt="GitHub" width={16} height={16} />
+                    <Image
+                      src="/github.png"
+                      alt="GitHub"
+                      width={16}
+                      height={16}
+                    />
                   </Link>
                   <Link
                     href={item.live}
@@ -103,7 +114,7 @@ const TopProjects = () => {
                     aria-label="Live demo"
                   >
                     <Image
-                      src={LinkIcon.src}
+                      src="/link.png"
                       alt="Live demo"
                       width={16}
                       height={16}
@@ -124,7 +135,7 @@ const TopProjects = () => {
                     className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
                   >
                     <Image
-                      src={tech.src}
+                      src={tech}
                       alt="Technology"
                       width={16}
                       height={16}
