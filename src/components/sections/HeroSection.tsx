@@ -1,4 +1,3 @@
-import me from "@/assets/images/me.png";
 import Image from "next/image";
 import Header from "../layouts/Header";
 import { BorderBeam } from "../magicui/border-beam";
@@ -39,7 +38,7 @@ const HeroSection = async () => {
         <div className="relative mb-8">
           <div className="rounded-full p-1 bg-gradient-to-r from-purple-500 to-rose-500">
             <Image
-              src={me.src}
+              src="/me.png"
               alt="Navidreza Abbaszadeh"
               width={220}
               height={220}
