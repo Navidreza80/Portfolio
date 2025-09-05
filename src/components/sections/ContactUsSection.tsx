@@ -145,7 +145,7 @@ const ContactForm = () => {
         <div className="hidden lg:flex justify-center items-center">
           <div className="relative w-full h-[400px] bg-black/30 border border-white/10 rounded-2xl overflow-hidden">
             <Image
-              src={ContactUsImage}
+              src={ContactUsImage.src}
               alt="Contact illustration"
               fill
               className="object-cover"

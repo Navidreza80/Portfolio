@@ -68,7 +68,7 @@ const TopProjects = () => {
             {/* Project image */}
             <div className="relative h-48 overflow-hidden">
               <Image
-                src={item.image}
+                src={item.image.src}
                 alt={item.name}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -93,7 +93,7 @@ const TopProjects = () => {
                     rel="noopener noreferrer"
                     aria-label="GitHub repository"
                   >
-                    <Image src={Github} alt="GitHub" width={16} height={16} />
+                    <Image src={Github.src} alt="GitHub" width={16} height={16} />
                   </Link>
                   <Link
                     href={item.live}
@@ -103,7 +103,7 @@ const TopProjects = () => {
                     aria-label="Live demo"
                   >
                     <Image
-                      src={LinkIcon}
+                      src={LinkIcon.src}
                       alt="Live demo"
                       width={16}
                       height={16}
@@ -124,7 +124,7 @@ const TopProjects = () => {
                     className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
                   >
                     <Image
-                      src={tech}
+                      src={tech.src}
                       alt="Technology"
                       width={16}
                       height={16}
