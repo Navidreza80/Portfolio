@@ -13,7 +13,7 @@ const WorkExperience = async () => {
       </h2>
 
       {/* Experience cards */}
-      <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+      <div id="experiences" className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
         {workExperiences.map((item, index) => (
           <div
             key={index}
