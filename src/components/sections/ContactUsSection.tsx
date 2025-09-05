@@ -30,7 +30,7 @@ const ContactForm = () => {
   }
 
   return (
-    <section className="relative bg-black px-4 py-16 sm:px-8 md:px-16 lg:px-24">
+    <section id="contact" className="relative bg-black px-4 py-16 sm:px-8 md:px-16 lg:px-24">
       {/* Subtle background elements */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-purple-900/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-64 h-64 bg-rose-900/5 rounded-full blur-3xl"></div>
