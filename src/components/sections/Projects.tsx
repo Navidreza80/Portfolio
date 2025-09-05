@@ -122,7 +122,6 @@ const TopProjects = () => {
                   <div
                     key={i}
                     className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
-                    title={tech.src.split("/").pop()?.replace(".png", "")}
                   >
                     <Image
                       src={tech}
