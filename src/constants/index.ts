@@ -1,0 +1,68 @@
+export const workExperiences = [
+  {
+    name: "Hexorix",
+    role: "Fullstack developer | Remote",
+    date: "May 2025 - Aug 2025",
+    description: [
+      "Developed a high-performance Single Page Application (SPA) with Next.js, ensuring fast loading times and smooth client-side navigation.",
+      "Built an Express.js backend with a clean architecture and secure authentication, enhancing reliability and data protection.",
+      "Created a reusable UI component library, improving modularity and reducing development time for future projects.",
+      "Integrated state management and optimized rendering, boosting application performance and scalability.",
+      "Leveraged Prisma as a TypeScript-first ORM, streamlining database operations and accelerating development.",
+      "Maintained clean, well-documented code, enabling smooth handovers and easier long-term maintenance.",
+      "Collaborated within Agile/Scrum workflows, ensuring timely delivery and improved team productivity.",
+    ],
+  },
+  {
+    name: "Sepehr Academy",
+    role: "Frontend developer | Remote",
+    date: "Apr 2023 - Jan 2025",
+    description: [
+      "• Spearheaded development of a high-performance SPA with React.js, integrating customizable themes and trilingual support via i18next, resulting in a 30% increase in user engagement (Google Analytics).",
+      "• Collaborated with a 5-person Agile team to set up automated CI/CD pipelines using GitHub Actions and standardized code reviews, boosting sprint velocity by 25% (Jira).",
+      "• Integrated 200+ RESTful API endpoints with React Query and Axios, implementing caching strategies that reduced load times by 15% (browser performance tools).",
+      "• Designed responsive, cross-browser-compatible UIs with Tailwind CSS, improving user engagement by 20% (Google Analytics session duration).",
+      "• Streamlined UI development with Vuexy Admin Panel, cutting project delivery timelines by 30% while maintaining scalability and clean code.",
+    ],
+  },
+  {
+    name: "TradingAI - Startup",
+    role: "Co-founder",
+    date: "Sep 2022 - Mar 2023",
+    description: [
+      "Developed a full-stack platform using Next.js and Prisma, enhancing feature integration and overall performance.",
+      "Designed interactive dashboards and user-friendly interfaces, improving usability and engagement.",
+      "Implemented real-time data and API integration, enabling informed decision-making and reducing data errors.",
+      "Integrated AI analysis tools, providing automated insights and trading signals.",
+      "Developed educational modules and quizzes, supporting knowledge building and skill development.",
+      "Built blog features and content management, increasing user interaction and content scalability.",
+      "Optimized back-end queries and database structure, ensuring efficient data retrieval and scalability.",
+      "Managed end-to-end workflow, strengthening problem-solving and full-stack development expertise.",
+    ],
+  },
+  {
+    name: "Apanco",
+    role: "Frontend developer | Remote",
+    date: "Aug 2021 - Aug 2022",
+    description: [
+      "Developed a React-based real estate application leveraging Leaflet.js for live, synchronized property location mapping.",
+      "Implemented Redux for state management on a large-scale platform and React Query with caching, ensuring seamless data loading and smooth performance.",
+      "Integrated 3D visualization features for house interiors and rooms, enabling easier online property reviews.",
+      "Configured Auth.js for fast, secure authentication and session management, enhancing platform reliability and data security.",
+      "Built an AI-powered search system, delivering personalized house recommendations tailored to user needs.",
+    ],
+  },
+  {
+    name: "Freelance",
+    role: "Frontend developer | Remote",
+    date: "Apr 2021 - Jul 2021",
+    description: [
+      "Built a React application with Vite, improving performance and load speed through optimized bundling.",
+      "Implemented multilingual support using i18n, expanding accessibility and user reach across multiple regions.",
+      "Developed a user-friendly dashboard with interactive charts, 2-step verification, and profile customization, enhancing usability and security.",
+      "Created an admin panel with role-based access control, enabling efficient content management and streamlined workflows.",
+      "Optimized product search and filtering with React Query for pagination and URL-based sorting, boosting user experience and reducing query times.",
+      "Integrated secure authentication with Clerk, ensuring seamless and reliable user login.",
+    ],
+  },
+];

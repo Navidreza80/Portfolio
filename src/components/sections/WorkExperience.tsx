@@ -1,30 +1,4 @@
-const workExperiences = [
-  {
-    name: "Sepehr Academy",
-    role: "Frontend developer | React.js",
-    date: "March 2024 - July 2025",
-    description: [
-      "Developed a Single Page Application (SPA) using React.js.",
-      "Customizable theme and support for three languages, leading to a 30% increase in user interest.",
-      "Collaborated in a 5-person team and introduced time-saving tools and workflows, improving team efficiency by 25%.",
-      "Implemented over 200 APIs and web methods.",
-      "Ensured cross-browser/device compatibility with responsive design, increasing user engagement by 20%. Leveraged Vuexy Admin-Panel, reducing development time by 30%.",
-    ],
-  },
-  {
-    name: "Apanco",
-    role: "Frontend developer | React.js",
-    date: "May 2023 - February 2024",
-    description: [
-      "Constructed a Single Page Application SPA web app using React.js.",
-      "Implemented TypeScript, enhancing debugging capabilities and increasing efficiency by 20%.",
-      "Built responsive layouts that improved usability and design consistency by 20%.",
-      "Associated with team members and participated in various meetings, suggesting innovative ideas and new features that led to a 15% improvement in efficiency.",
-      "Worked closely with the design team to enhance UI and UX by 20%.",
-      "Achieved productivity by identifying bottlenecks in the development process; introduced new protocols that enhanced cross-team communication and improved turnaround time for project tasks by approximately 25%",
-    ],
-  },
-];
+import { workExperiences } from "@/constants";
 
 const WorkExperience = async () => {
   return (

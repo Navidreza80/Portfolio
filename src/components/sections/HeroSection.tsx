@@ -5,12 +5,13 @@ import Github from "../svg/Github";
 import LinkedIn from "../svg/LinkedIn";
 import Telegram from "../svg/Telegram";
 import X from "../svg/X";
+import Link from "next/link";
 
 const socialMediaLinks = [
-  { icon: <Github />, href: "/github" },
+  { icon: <Github />, href: "https://github.com/Navidreza80?tab=repositories" },
   { icon: <X />, href: "/twitter" },
-  { icon: <LinkedIn />, href: "/linkedin" },
-  { icon: <Telegram />, href: "/telegram" },
+  { icon: <LinkedIn />, href: "https://www.linkedin.com/in/navidabbaszadeh/" },
+  { icon: <Telegram />, href: "https://t.me/Navidreze880" },
 ];
 
 const HeroSection = async () => {
@@ -56,7 +57,7 @@ const HeroSection = async () => {
         {/* Social links - minimal style */}
         <div className="flex justify-center mb-8 gap-5">
           {socialMediaLinks.map((item, index) => (
-            <a
+            <Link
               key={index}
               href={item.href}
               target="_blank"
@@ -64,14 +65,18 @@ const HeroSection = async () => {
               className="text-gray-400 hover:text-white transition-colors p-2"
             >
               {item.icon}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* Minimal button */}
-        <button className="bg-transparent border border-white/20 hover:border-white/40 transition-all duration-300 text-white rounded-lg font-medium text-base px-8 py-3 hover:bg-white/5">
-          View Public Projects
-        </button>
+        <Link
+          href="https://drive.google.com/file/d/1K6Bz3HwFi2N9Ti2zpc_ETmPdoYiDKPX5/view?usp=drive_link"
+          target="_blank"
+          className="bg-transparent border border-white/20 hover:border-white/40 transition-all duration-300 text-white rounded-lg font-medium text-base px-8 py-3 hover:bg-white/5"
+        >
+          View Resume
+        </Link>
       </div>
     </div>
   );
