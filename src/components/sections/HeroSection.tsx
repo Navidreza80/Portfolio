@@ -39,13 +39,11 @@ const HeroSection = async () => {
         <div className="relative mb-8">
           <div className="rounded-full p-1 bg-gradient-to-r from-purple-500 to-rose-500">
             <Image
-              unoptimized
               src={me}
               alt="Navidreza Abbaszadeh"
               width={220}
               height={220}
               className="rounded-full border-2 border-black"
-              priority
             />
             <BorderBeam
               duration={10}
