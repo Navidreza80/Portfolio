@@ -1,7 +1,7 @@
-const LinkedIn = () => {
+const LinkedIn = ({ className }: { className?: string }) => {
   return (
     <svg
-      className="hover:scale-105 transition-all duration-300 cursor-pointer"
+      className={`hover:scale-105 transition-all duration-300 cursor-pointer ${className}`}
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
