@@ -8,11 +8,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-interface PostPageProps {
-  params: { id: string };
-}
-
-export default async function PostPage({ params }: PostPageProps) {
+export default async function PostPage({ params }: { params: { id: string } }) {
   const { id } = await params;
   const post = await getPostById(id);
   const userId = await getServerCookie("userId");
