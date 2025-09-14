@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const navLinks = ["Testimonial", "Experiences", "Projects", "Contact"];
+const navLinks = ["Testimonial", "Experiences", "Projects", "Contact", "Blogs"];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
