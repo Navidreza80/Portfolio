@@ -7,7 +7,7 @@ const BlogSection = async () => {
   const posts = await getAllPosts();
   return (
     <section className="bg-background">
-      <div className="mx-auto px-4 py-16 sm:px-8 md:px-16 lg:px-24">
+      <div className="mx-auto px-4 py-16 sm:px-5 md:px-16 lg:px-24">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">

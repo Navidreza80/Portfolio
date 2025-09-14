@@ -21,7 +21,7 @@ export default async function PostPage({
   if (!post) return notFound();
 
   return (
-    <article className="container mx-auto py-10 max-w-3xl text-foreground">
+    <article className="mx-auto py-10 max-w-3xl text-foreground px-5">
       {/* Title & Meta */}
       <header className="mb-6">
         <h1 className="text-4xl font-bold mb-3">{post.title}</h1>
