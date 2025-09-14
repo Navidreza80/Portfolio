@@ -56,8 +56,25 @@ export default async function PostPage({
 
       {/* Content */}
       <div
-        className="prose prose-purple dark:prose-invert max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        className="prose prose-purple dark:prose-invert max-w-none text-gray-200 leading-10"
+        dangerouslySetInnerHTML={{
+          __html: post.content
+            // Headings (## -> h2)
+            .replace(/^## (.*)$/gm, "<h2>$1</h2>")
+            // Bold text (**bold**)
+            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+            // Bullet points (• item -> <li>item</li>)
+            .replace(/• (.*)/g, "<li>$1</li>")
+            // Wrap lists in <ul>
+            .replace(/(<li>[\s\S]*?<\/li>)/g, "<ul>$1</ul>")
+            // Paragraphs (/n/n -> new paragraph)
+            .replaceAll("/n/n", "</p><p>")
+            // Line breaks (/n -> <br>)
+            .replaceAll("/n", "<br />")
+            // Wrap first and last in <p>
+            .replace(/^/, "<p>")
+            .concat("</p>"),
+        }}
       />
 
       {/* Category & Tags */}
