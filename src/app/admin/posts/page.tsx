@@ -12,8 +12,10 @@ import {
 import { formatDistance } from "date-fns";
 import Link from "next/link";
 
-import { PostActionsDropdown, StatusToggle } from "@/components/PostActionsDropdown";
-// import { StatusToggle } from "./components/StatusToggle";
+import {
+  PostActionsDropdown,
+  StatusToggle,
+} from "@/components/PostActionsDropdown";
 
 export default async function AdminPostsPage() {
   const posts = await getAllPosts();

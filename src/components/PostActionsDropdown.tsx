@@ -20,6 +20,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Post } from "@prisma/client";
 import {
   Edit,
   ExternalLink,
@@ -31,19 +32,6 @@ import {
 import Link from "next/link";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
-
-interface Post {
-  id: string;
-  title: string;
-  slug: string;
-  published: boolean;
-  featured: boolean;
-  author: {
-    id: string;
-    name: string;
-    email: string;
-  };
-}
 
 interface PostActionsDropdownProps {
   post: Post;
@@ -87,7 +75,10 @@ export function PostActionsDropdown({ post }: PostActionsDropdownProps) {
             <span className="sr-only">Open menu</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56 bg-background text-foreground border border-white/50">
+        <DropdownMenuContent
+          align="end"
+          className="w-56 bg-background text-foreground border border-white/50"
+        >
           <DropdownMenuItem asChild>
             <Link href={`/admin/posts/${post.id}/edit`}>
               <Edit className="mr-2 h-4 w-4" />
