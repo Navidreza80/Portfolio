@@ -17,13 +17,15 @@ const Header = () => {
 bg-black  border-b border-white/10"
     >
       {/* Logo */}
-      <span className="font-bold text-xl text-white tracking-wide">NAVID</span>
+      <Link href="/" className="font-bold text-xl text-white tracking-wide">
+        NAVID
+      </Link>
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex gap-6 lg:gap-8">
         {navLinks.map((item) => (
           <Link
-            href={`#${item.toLowerCase()}`}
+            href={`/#${item.toLowerCase()}`}
             key={item}
             className="font-light text-white/70 hover:text-white transition-colors text-sm relative group"
           >
@@ -111,7 +113,7 @@ bg-black  border-b border-white/10"
         <nav className="flex flex-col gap-2">
           {navLinks.map((item) => (
             <Link
-              href={`#${item.toLowerCase()}`}
+              href={`/#${item.toLowerCase()}`}
               key={item}
               className="font-light text-white/70 hover:text-white py-3 px-4 rounded transition-all hover:bg-white/5 text-lg"
               onClick={() => setIsMenuOpen(false)}
