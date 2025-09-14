@@ -14,3 +14,69 @@ model ContactMessage {
   message   String
   createdAt DateTime @default(now())
 }
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      String?  @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String?
+
+  posts    Post[]
+  comments Comment[]
+
+  @@map("users")
+}
+
+model Post {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  excerpt       String?
+  content       String
+  featuredImage String?
+  published     Boolean  @default(false)
+  featured      Boolean  @default(false)
+  readTime      Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  metaTitle       String?
+  metaDescription String?
+  metaKeywords    String?
+
+  authorId   String
+  categoryId String?
+
+  author   User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category String
+  tags     String
+  comments Comment[]
+
+  @@index([slug])
+  @@index([authorId])
+  @@index([categoryId])
+  @@map("posts")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  postId   String
+  authorId String?
+  parentId String?
+
+  post   Post  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author User? @relation(fields: [authorId], references: [id], onDelete: SetNull)
+
+  @@index([postId])
+  @@index([authorId])
+  @@index([parentId])
+  @@map("comments")
+}

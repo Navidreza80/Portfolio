@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
         hostname: "randomuser.me",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
+      },
     ],
   },
 };

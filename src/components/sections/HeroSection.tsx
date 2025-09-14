@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Header from "../layouts/Header";
+import Link from "next/link";
 import { BorderBeam } from "../magicui/border-beam";
 import Github from "../svg/Github";
 import LinkedIn from "../svg/LinkedIn";
 import Telegram from "../svg/Telegram";
 import X from "../svg/X";
-import Link from "next/link";
 
 const socialMediaLinks = [
   { icon: <Github />, href: "https://github.com/Navidreza80?tab=repositories" },
@@ -23,8 +22,6 @@ const HeroSection = async () => {
       {/* Minimal background elements */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-900/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-rose-900/10 rounded-full blur-3xl"></div>
-
-      <Header />
 
       <div className="flex-1 flex flex-col items-center justify-center w-full px-4 z-10">
         {/* Name with subtle animation */}
