@@ -1,23 +1,17 @@
-/* eslint-disable */
-
 "use client";
 
-import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import { createPost, type CreatePostData } from "@/app/actions/Posts";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
 import { toast } from "sonner";
 
-interface CreatePostFormProps {
-  currentUserId: string;
-}
-
-export default function CreatePostForm({ currentUserId }: CreatePostFormProps) {
+export default function CreatePostForm() {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
@@ -94,10 +88,19 @@ export default function CreatePostForm({ currentUserId }: CreatePostFormProps) {
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold">Create New Post</h1>
         <div className="flex gap-2">
-          <Button type="button" variant="outline" onClick={() => router.back()} className="hover:bg-purple-600/30">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => router.back()}
+            className="hover:bg-purple-600/30"
+          >
             Cancel
           </Button>
-          <Button type="submit" disabled={isPending} className="bg-purple-300/90 hover:bg-purple-300/50 text-background">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="bg-purple-300/90 hover:bg-purple-300/50 text-background"
+          >
             {isPending ? "Creating..." : "Create Post"}
           </Button>
         </div>
