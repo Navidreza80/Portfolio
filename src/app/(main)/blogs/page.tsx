@@ -52,7 +52,7 @@ const BlogSection = async () => {
                   />
                   <div className="absolute inset-0 bg-purple-300/30 to-transparent opacity-60"></div>
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-purple-300/50 backdrop-blur-sm rounded text-xs font-semibold text-foreground">
+                    <span className="px-3 py-1 bg-purple-300 backdrop-blur-sm rounded text-xs font-semibold text-background">
                       {post.category}
                     </span>
                   </div>
