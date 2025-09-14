@@ -13,7 +13,9 @@ export async function middleware(req: NextRequest) {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/api/user/${userId}`);
+      const res = await fetch(
+        `https://navidrezaabbaszadeh.netlify.app/api/user/${userId}`
+      );
       if (!res.ok) {
         return NextResponse.redirect(new URL("/login/admin", req.url));
       }
