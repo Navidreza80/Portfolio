@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const navLinks = ["Testimonial", "Experiences", "Projects", "Contact", "Blogs"];
+const navLinks = ["Testimonial", "Experiences", "Projects", "Contact"];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,6 +31,13 @@ bg-black  border-b border-white/10"
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all group-hover:w-full"></span>
           </Link>
         ))}
+        <Link
+          href="/blogs"
+          className="font-light text-white/70 hover:text-white transition-colors text-sm relative group"
+        >
+          Blogs
+          <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all group-hover:w-full"></span>
+        </Link>
       </nav>
 
       {/* Mobile Menu Button */}
@@ -112,6 +119,13 @@ bg-black  border-b border-white/10"
               {item}
             </Link>
           ))}
+          <Link
+            href="/blogs"
+            className="font-light text-white/70 hover:text-white py-3 px-4 rounded transition-all hover:bg-white/5 text-lg"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Blogs
+          </Link>
         </nav>
       </div>
     </header>
