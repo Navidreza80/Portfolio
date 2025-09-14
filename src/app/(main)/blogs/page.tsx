@@ -1,5 +1,4 @@
 import { getAllPosts } from "@/app/actions/Posts";
-import { Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -70,17 +69,6 @@ const BlogSection = async () => {
                   <p className="text-gray-400 mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    <span
-                      key={post.tags}
-                      className="flex items-center gap-1 px-2 py-1 bg-gray-700 rounded text-xs text-gray-300"
-                    >
-                      <Tag className="w-3 h-3" />
-                      {post.tags}
-                    </span>
-                  </div>
                 </div>
               </article>
             </Link>
