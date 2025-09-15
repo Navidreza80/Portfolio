@@ -59,10 +59,35 @@ export default async function PostPage({
         className="prose prose-purple dark:prose-invert max-w-none text-gray-200 leading-10"
         dangerouslySetInnerHTML={{
           __html: post.content
-            // Headings (## -> h2)
-            .replace(/^## (.*)$/gm, "<h2>$1</h2>")
+            .replaceAll("/n", "\n")
+            // Heading
+            // (# -> h1)
+            .replace(/^# (.*)$/gm, "<h1 class='text-4xl font-bold'>$1</h1>")
+            // (## -> h2)
+            .replace(/^## (.*)$/gm, "<h2 class='text-2xl font-bold'>$1</h2>")
+            // (### -> h3)
+            .replace(/^### (.*)$/gm, "<h3 class='text-xl font-bold'>$1</h3>") // turn `/n` into real newlines
+
             // Bold text (**bold**)
             .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+            // Code editor
+            .replace(/\n/g, "<br />")
+            .replace(
+              /```([\s\S]*?)```/g,
+              `<div class="bg-gray-900 rounded-lg overflow-hidden my-4 !py-0">
+                <div class="bg-gray-800 flex gap-2 px-3 !pt-1 h-[20px]">
+                  <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                </div>
+                <pre class="p-4 text-blue-400 text-sm overflow-x-auto"><code>$1</code></pre>
+              </div>`
+            )
+            // Inline code (`...`)
+            .replace(
+              /`([^`]+)`/g,
+              `<code class="bg-gray-800 text-pink-400 px-1 py-0.5 rounded">$1</code>`
+            )
             // Bullet points (• item -> <li>item</li>)
             .replace(/• (.*)/g, "<li>$1</li>")
             // Wrap lists in <ul>
@@ -70,7 +95,7 @@ export default async function PostPage({
             // Paragraphs (/n/n -> new paragraph)
             .replaceAll("/n/n", "</p><p>")
             // Line breaks (/n -> <br>)
-            .replaceAll("/n", "<br />")
+
             // Wrap first and last in <p>
             .replace(/^/, "<p>")
             .concat("</p>"),
