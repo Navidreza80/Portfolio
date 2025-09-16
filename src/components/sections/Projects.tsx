@@ -154,7 +154,7 @@ const TopProjects = () => {
 
       {/* View More Button */}
       <div className="text-center mt-12">
-        <Link href="https://github.com/Navidreza80?tab=repositories" target="_blank" className="bg-transparent border border-white/20 text-white rounded-lg px-8 py-3 hover:border-white/40 hover:bg-white/5 transition-all duration-300">
+        <Link href="/projects" className="bg-transparent border border-white/20 text-white rounded-lg px-8 py-3 hover:border-white/40 hover:bg-white/5 transition-all duration-300">
           View More Projects
         </Link>
       </div>
