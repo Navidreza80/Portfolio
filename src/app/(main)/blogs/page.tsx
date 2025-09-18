@@ -1,9 +1,9 @@
-import { getAllPosts } from "@/app/actions/Posts";
+import { getAllPostsByUser } from "@/app/actions/Posts";
 import Image from "next/image";
 import Link from "next/link";
 
 const BlogSection = async () => {
-  const posts = await getAllPosts();
+  const posts = await getAllPostsByUser();
   return (
     <section className="bg-background">
       <div className="mx-auto px-4 py-16 sm:px-5 md:px-16 lg:px-24">
