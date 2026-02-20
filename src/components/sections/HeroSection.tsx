@@ -2,14 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { BorderBeam } from "../magicui/border-beam";
 import Github from "../svg/Github";
-import LinkedIn from "../svg/LinkedIn";
 import Telegram from "../svg/Telegram";
 import X from "../svg/X";
 
 const socialMediaLinks = [
   { icon: <Github />, href: "https://github.com/Navidreza80?tab=repositories" },
-  { icon: <X />, href: "/twitter" },
-  { icon: <LinkedIn />, href: "https://www.linkedin.com/in/navidabbaszadeh/" },
+  { icon: <X />, href: "https://x.com/Navidreza008", },
   { icon: <Telegram />, href: "https://t.me/Navidreze880" },
 ];
 
