@@ -133,3 +133,64 @@ body {
  opacity: 0.5;
   animation: rainbow-trail 0.3s ease-in-out forwards;
 }
+
+.swiper {
+  width: 100%;
+  padding: 20px 0 60px 0;
+}
+
+.swiper-slide {
+  transition: all 0.3s ease;
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #a855f7, #f43f5e);
+}
+
+.swiper-pagination-bullet-active-main {
+  transform: scale(1.2);
+}
+
+/* Custom animation for particles */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-30px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(-20px);
+  }
+}
+
+/* Hover effect for slides */
+.swiper-slide:hover {
+  transform: scale(1.02) translateY(-5px);
+}
+
+/* Smooth transitions */
+.swiper-slide,
+.swiper-slide * {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
