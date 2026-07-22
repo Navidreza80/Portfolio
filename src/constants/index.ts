@@ -1,7 +1,7 @@
 export const workExperiences = [
   {
     name: "Miznex",
-    role: "Full-stack engineer | Remote",
+    role: "Full-stack engineer | Remote (Italy)",
     date: "Aug 2025 - Present",
     description: [
       "Built a scalable Kitchen Display System (KDS) using Next.js and NestJS, implementing a modular architecture with CQRS for order processing and event-driven workflows.",
@@ -12,7 +12,7 @@ export const workExperiences = [
   },
   {
     name: "Hexorix",
-    role: "Full-stack developer | Remote",
+    role: "Full-stack developer | Remote (Estonia)",
     date: "May 2025 - Aug 2025",
     description: [
       "Led a team of 3 full-stack developers, owning product roadmap and delivery while accelerating release cycles by 25%.",
@@ -23,7 +23,7 @@ export const workExperiences = [
   },
   {
     name: "Sepehr Academy",
-    role: "Full-stack developer | Remote",
+    role: "Full-stack developer | Remote (Iran)",
     date: "Aug 2022 - Jan 2025",
     description: [
       "Improved code quality and reduced post-release bugs by 30% by leading a team of 5 developers and establishing structured code reviews and agile workflows.",
@@ -34,7 +34,7 @@ export const workExperiences = [
   },
   {
     name: "Apanco",
-    role: "Frontend developer | Remote",
+    role: "Frontend developer | Remote (Iran)",
     date: "Aug 2021 - Aug 2022",
     description: [
       "Improved build speed by 60% by developing a high-performance React application using Vite and TypeScript.",

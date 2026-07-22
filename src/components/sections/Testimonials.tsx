@@ -1,93 +1,50 @@
-import Image from "next/image";
-import LinkedIn from "../svg/LinkedIn";
-
-const testimonials = [
+const skillGroups = [
   {
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    name: "Daniel Carter",
-    position: "Senior Developer, TechCorp",
-    username: "@daniel.codes",
-    comment: "A true problem solver! Made collaboration super smooth.",
-    linkedin: "https://linkedin.com/in/danielcarter",
+    title: "Backend",
+    items: ["NestJS", "Node.js", "Express", "Fastify", "FastAPI", "Django", "Laravel"],
   },
   {
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    name: "Sofia Martinez",
-    position: "Lead Designer, CreativeStudio",
-    username: "@sofi.designs",
-    comment: "Creative, fast, and always delivers beyond expectations.",
-    linkedin: "https://linkedin.com/in/sofiamartinez",
+    title: "Frontend",
+    items: ["Next.js", "React", "Angular", "Vue", "React Native", "TypeScript"],
   },
   {
-    image: "https://randomuser.me/api/portraits/men/76.jpg",
-    name: "Liam Johnson",
-    position: "Product Manager, StartupHub",
-    username: "@liam_builds",
-    comment: "Turned my idea into a polished product in no time!",
-    linkedin: "https://linkedin.com/in/liamjohnson",
+    title: "Product Systems",
+    items: ["WebSockets", "Socket.IO", "REST APIs", "Prisma", "Mongoose", "Redis"],
+  },
+  {
+    title: "Delivery",
+    items: ["CI/CD", "Docker", "GitHub Actions", "Supabase", "Leaflet", "i18n"],
   },
 ];
 
 const Testimonials = () => {
   return (
-    <section id="testimonial" className="relative bg-black px-4 py-16 sm:px-8 md:px-16 lg:px-24">
-      {/* Subtle background elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-purple-900/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-64 h-64 bg-rose-900/5 rounded-full blur-3xl"></div>
-
-      {/* Section title */}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-12 md:mb-16">
-        Testimonials
+    <section id="skills" className="relative bg-[var(--pf-bg-soft)] px-4 py-20 text-[var(--pf-text)] sm:px-8 md:px-16 lg:px-24">
+      <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl lg:text-5xl">
+        Technical Stack
       </h2>
+      <p className="mx-auto mb-12 max-w-2xl text-center text-[var(--pf-muted)]">
+        A practical toolkit for shipping full-stack applications with strong
+        real-time behavior, clean interfaces, and reliable deployment.
+      </p>
 
-      {/* Testimonials grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {testimonials.map((item) => (
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-2">
+        {skillGroups.map((group) => (
           <div
-            key={item.name}
-            className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-white/20 transition-all duration-500 group"
+            key={group.title}
+            className="border border-[var(--pf-border)] bg-[var(--pf-card)] p-6 shadow-[0_18px_60px_rgba(72,83,62,0.08)] backdrop-blur-sm"
           >
-            {/* Quote icon */}
-            <div className="text-purple-400 mb-4">
-              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-              </svg>
+            <h3 className="mb-5 text-xl font-semibold text-[var(--pf-heading)]">{group.title}</h3>
+            <div className="flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span
+                  key={item}
+                  className="border border-[var(--pf-border)] bg-white/35 px-3 py-2 text-sm text-[var(--pf-muted)]"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
-
-            {/* Testimonial text */}
-            <p className="text-white/90 text-lg leading-relaxed mb-6">
-              &quot;{item.comment}&quot;
-            </p>
-
-            {/* User info */}
-            <div className="flex items-center">
-              <Image
-                src={item.image}
-                width={56}
-                height={56}
-                alt={item.name}
-                className="rounded-full object-cover"
-              />
-              <div className="ml-4 flex-1">
-                <h3 className="text-white font-semibold">{item.name}</h3>
-                <p className="text-white/70 text-sm">{item.position}</p>
-                <div className="flex items-center mt-1">
-                  <a
-                    href={item.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/60 hover:text-white transition-colors flex items-center"
-                    aria-label={`View ${item.name}'s LinkedIn profile`}
-                  >
-                    <LinkedIn className="w-4 h-4 mr-1" />
-                    <span className="text-xs">Verify on LinkedIn</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Hover effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-rose-500/0 group-hover:from-purple-500/3 group-hover:to-rose-500/3 transition-all duration-500 rounded-xl -z-10"></div>
           </div>
         ))}
       </div>

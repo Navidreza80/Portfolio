@@ -5,6 +5,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../styles/globals.css";
 import { Toaster } from "sonner";
+import ThemeToggle from "@/components/layouts/ThemeToggle";
+import { cookies } from "next/headers";
+import { type Theme } from "@/app/actions/Theme";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,20 +22,25 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Navidreza Abbaszadeh Portfolio",
-  description: "Developer portfolio powered by Next.js",
+  title: "Navid Abbaszadeh - Full-stack Developer",
+  description:
+    "Full-stack developer specializing in NestJS, Node.js, Next.js, real-time systems, and modern web applications.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const theme = (cookieStore.get("portfolio-theme")?.value ?? "dark") as Theme;
+
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <body className="antialiased bg-background font-poppins">
+      <body data-theme={theme} className="antialiased bg-background font-poppins">
         <Toaster />
         {children}
+        <ThemeToggle />
       </body>
     </html>
   );

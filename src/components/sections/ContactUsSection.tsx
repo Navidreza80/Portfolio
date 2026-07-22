@@ -30,22 +30,20 @@ const ContactForm = () => {
   }
 
   return (
-    <section id="contact" className="relative bg-black px-4 py-16 sm:px-8 md:px-16 lg:px-24">
-      {/* Subtle background elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-purple-900/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-64 h-64 bg-rose-900/5 rounded-full blur-3xl"></div>
-      <h2 className="text-3xl w-full md:text-4xl font-bold text-white text-center mb-8">
+    <section id="contact" className="relative bg-[var(--pf-bg-alt)] px-4 py-20 text-[var(--pf-text)] sm:px-8 md:px-16 lg:px-24">
+      <h2 className="mb-4 w-full text-center text-3xl font-bold md:text-4xl">
         Get in Touch
       </h2>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Contact Form */}
+      <p className="mx-auto mb-10 max-w-2xl text-center text-[var(--pf-muted)]">
+        Have a product, platform, or team that needs a steady full-stack hand?
+        Send a note and I will get back to you.
+      </p>
+
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
           <form onSubmit={(e) => handleSubmit(e)} className="space-y-6">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-white/80 mb-2"
-              >
+              <label htmlFor="name" className="mb-2 block text-sm font-medium text-[var(--pf-muted)]">
                 Name
               </label>
               <input
@@ -53,16 +51,13 @@ const ContactForm = () => {
                 id="name"
                 name="name"
                 required
-                className="w-full p-3 bg-black/50 border border-white/10 rounded-lg text-white placeholder-white/40 focus:border-white/30 focus:outline-none transition-colors"
+                className="w-full border border-[var(--pf-border)] bg-white/45 p-3 text-[var(--pf-text)] placeholder-[var(--pf-muted)] outline-none transition-colors focus:border-[var(--pf-accent)]"
                 placeholder="Your name"
               />
             </div>
 
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-white/80 mb-2"
-              >
+              <label htmlFor="email" className="mb-2 block text-sm font-medium text-[var(--pf-muted)]">
                 Email
               </label>
               <input
@@ -70,16 +65,13 @@ const ContactForm = () => {
                 id="email"
                 name="email"
                 required
-                className="w-full p-3 bg-black/50 border border-white/10 rounded-lg text-white placeholder-white/40 focus:border-white/30 focus:outline-none transition-colors"
+                className="w-full border border-[var(--pf-border)] bg-white/45 p-3 text-[var(--pf-text)] placeholder-[var(--pf-muted)] outline-none transition-colors focus:border-[var(--pf-accent)]"
                 placeholder="you@example.com"
               />
             </div>
 
             <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-white/80 mb-2"
-              >
+              <label htmlFor="message" className="mb-2 block text-sm font-medium text-[var(--pf-muted)]">
                 Message
               </label>
               <textarea
@@ -87,7 +79,7 @@ const ContactForm = () => {
                 name="message"
                 required
                 rows={4}
-                className="w-full p-3 bg-black/50 border border-white/10 rounded-lg text-white placeholder-white/40 focus:border-white/30 focus:outline-none transition-colors resize-none"
+                className="w-full resize-none border border-[var(--pf-border)] bg-white/45 p-3 text-[var(--pf-text)] placeholder-[var(--pf-muted)] outline-none transition-colors focus:border-[var(--pf-accent)]"
                 placeholder="How can I help you?"
               />
             </div>
@@ -95,75 +87,48 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full bg-transparent border border-white/20 text-white py-3 px-6 rounded-lg hover:border-white/40 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+              className="w-full border border-[var(--pf-button)] bg-[var(--pf-button)] px-6 py-3 text-[var(--pf-button-text)] transition-all duration-300 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {status === "loading" ? (
-                <div className="flex items-center justify-center">
-                  <svg
-                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                  Sending...
-                </div>
-              ) : (
-                "Send Message"
-              )}
+              {status === "loading" ? "Sending..." : "Send Message"}
             </button>
 
             {status === "success" && (
-              <div className="p-3 bg-green-500/10 border border-green-500/20 rounded-lg text-green-400 text-center">
-                Message sent successfully! I'll get back to you soon.
+              <div className="border border-[#6f8a60]/30 bg-[#dbe8d2] p-3 text-center text-[#36542d]">
+                Message sent successfully! I&apos;ll get back to you soon.
               </div>
             )}
 
             {status === "error" && (
-              <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-center">
+              <div className="border border-red-500/20 bg-red-500/10 p-3 text-center text-red-700">
                 {errors?.message || "Failed to send message. Please try again."}
               </div>
             )}
           </form>
         </div>
 
-        {/* Image Section */}
-        <div className="hidden lg:flex justify-center items-center">
-          <div className="relative w-full h-[400px] bg-black/30 border border-white/10 rounded-2xl overflow-hidden">
+        <div className="hidden justify-center lg:flex">
+          <div className="relative h-[460px] w-full overflow-hidden border border-white/55 bg-[var(--pf-card)] shadow-[0_28px_90px_rgba(39,49,34,0.18)]">
             <Image
-              src="/contactus.png"
-              alt="Contact illustration"
+              src="/me.jpg"
+              alt="Navid Abbaszadeh"
               fill
               className="object-cover"
             />
-
-            {/* Subtle gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-rose-500/5"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(32,39,28,0.28)_100%)]" />
           </div>
         </div>
       </div>
-      {/* Alternative contact methods */}
-      <div className="mt-8 text-center w-full">
-        <p className="text-white/60 mb-4">Or reach out directly</p>
+
+      <div className="mt-8 w-full text-center">
+        <p className="mb-4 text-[var(--pf-muted)]">Or reach out directly</p>
         <div className="flex justify-center space-x-6">
           <Link
             href="mailto:navidrezaabbaszadeh89@gmail.com"
             target="_blank"
-            className="text-white/70 hover:text-white transition-colors"
+            className="text-[var(--pf-accent)] transition-colors hover:text-[var(--pf-heading)]"
+            aria-label="Email Navid"
           >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z" />
             </svg>
           </Link>

@@ -1,4 +1,4 @@
-import Header from "@/components/layouts/Header";
+import HeaderWrapper from "@/components/layouts/HeaderWrapper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -11,8 +11,8 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <Header />
-      <main className="mt-[40px]">{children}</main>
+      <HeaderWrapper />
+      <main className="mt-[60px]">{children}</main>
     </>
   );
 }
